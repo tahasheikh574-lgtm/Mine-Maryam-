@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💕</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#ff5f9e,#ffc371);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* COMMON CARD */
+.card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  width:330px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* FIRST SCREEN */
+#screen1 h1{
+  margin-bottom:25px;
+}
+
+/* BUTTONS */
+button{
+  padding:12px 25px;
+  font-size:16px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  position:absolute;
+}
+
+#yes{
+  background:#ff4081;
+  color:white;
+  left:40%;
+  top:65%;
+}
+
+#no{
+  background:#ddd;
+  color:#333;
+  left:55%;
+  top:65%;
+}
+
+/* SECOND SCREEN */
+#screen2{
+  display:none;
+  background:linear-gradient(135deg,#8e2de2,#ff416c);
+  color:white;
+}
+
+.name{
+  color:#FFD700;
+  font-size:26px;
+  font-weight:bold;
+}
+
+.love{
+  color:#FFD700;
+  font-size:20px;
+  margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="card" id="screen1">
+  <h1>Will you be my Valentine? 💕</h1>
+</div>
+
+<button id="yes">Yes 💘</button>
+<button id="no">No 😈</button>
+
+<!-- SCREEN 2 -->
+<div class="card" id="screen2">
+  <h1>She said YES 💖</h1>
+  <p class="name">MARYAM 💕</p>
+  <p>You make my world brighter every day ✨</p>
+  <div class="love">I love you endlessly 💕</div>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const screen1 = document.getElementById("screen1");
+const screen2 = document.getElementById("screen2");
+
+/* NO → sirf move kare, kabhi gayab nahi */
+noBtn.addEventListener("click", () => {
+  const maxX = window.innerWidth - noBtn.offsetWidth;
+  const maxY = window.innerHeight - noBtn.offsetHeight;
+
+  noBtn.style.left = Math.random() * maxX + "px";
+  noBtn.style.top  = Math.random() * maxY + "px";
+});
+
+/* YES → same page pe second screen */
+yesBtn.addEventListener("click", () => {
+  screen1.style.display = "none";
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
+  screen2.style.display = "block";
+});
+</script>
+
+</body>
+</html>
